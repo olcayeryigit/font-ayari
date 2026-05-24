@@ -1,4 +1,4 @@
-##  1
+# 1
 
 Fontların `layout.js` İçinde Tanımlanması
 
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
   );
 }
 
-##  2
+#  2
 
 global.css
 
@@ -43,7 +43,7 @@ global.css
   --font-sans: var(--font-inter), sans-serif;
 }
 
-##  3
+# 3
 
 <h1 className="font-serif text-4xl italic text-[#c5a880]">Başlık Yazısı</h1>
 
