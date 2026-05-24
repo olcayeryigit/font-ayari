@@ -1,6 +1,6 @@
-## 🛠️ Kurulum Adımları
+##  1
 
-### 1. Adım: Fontların `layout.js` İçinde Tanımlanması
+Fontların `layout.js` İçinde Tanımlanması
 
 İlk olarak **`src/app/layout.js`** dosyasını açın. Google Fonts'tan gelen fontları Next.js yerleşik font optimizasyonu (`next/font/google`) ile yükleyip, CSS değişkenlerine (`variable`) bağlayarak `<html>` etiketine sınıf olarak ekleyin:
 
@@ -31,6 +31,7 @@ export default function RootLayout({ children }) {
   );
 }
 
+##  2
 
 global.css
 
@@ -41,6 +42,8 @@ global.css
   --font-serif: var(--font-cormorant), serif;
   --font-sans: var(--font-inter), sans-serif;
 }
+
+##  3
 
 <h1 className="font-serif text-4xl italic text-[#c5a880]">Başlık Yazısı</h1>
 
