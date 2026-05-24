@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+1. Adım: Fontu layout.js İçinde Tanımlayın
+İlk olarak src/app/layout.js dosyanızı açın ve Google Fonts'tan gelen fontu bir CSS değişkenine (--font-cormorant) bağlayarak <html> etiketine ekleyin:
 
-## Getting Started
+JavaScript
+import { Cormorant_Garamond, Inter } from "next/font/google";
+import "./globals.css";
 
-First, run the development server:
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+});
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+export default function RootLayout({ children }) {
+  return (
+    // Değişkenleri HTML sınıfına ekliyoruz
+    <html lang="tr" className={`${inter.variable} ${cormorant.variable}`}>
+      <body>{children}</body>
+    </html>
+  );
+}
+2. Adım: globals.css İçinde Tailwind v4 Yapılandırması
+Şimdi src/app/globals.css dosyanızı açın. Tailwind v4'te yeni font tanımlamak için @theme bloğunu kullanırız. Dosyanın en üstüne şu satırları ekleyin:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+CSS
+@import "tailwindcss";
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+@theme {
+  /* layout.js'ten gelen CSS değişkenini Tailwind font ailesine eşliyoruz */
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
+Artık Kullanabilirsiniz!
+Bu iki adımı yaptıktan sonra projenizde hiçbir ayar dosyası aramadan doğrudan Tailwind sınıflarını çağırabilirsiniz:
 
-## Learn More
+Tırnaklı Başlık Fontu İçin: font-serif sınıfını kullanın.
 
-To learn more about Next.js, take a look at the following resources:
+JavaScript
+<h1 className="font-serif text-5xl italic text-[#c5a880]">
+  Diyarbakır Avukatı Av. Özgür Atlı
+</h1>
+Düz Metin Fontu İçin: font-sans sınıfını kullanın.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+JavaScript
+<p className="font-sans text-sm text-gray-300">
+  Miras hukuku, aile ve boşanma hukuku...
+</p>
