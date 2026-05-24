@@ -1,4 +1,4 @@
-# 1
+# 1 
 
 Fontların `layout.js` İçinde Tanımlanması
 
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
+```
 #  2
 
 global.css
