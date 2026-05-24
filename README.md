@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
 ```
 #  2
 
+```javascript
 global.css
 
 @import "tailwindcss";
@@ -42,9 +43,11 @@ global.css
   --font-serif: var(--font-cormorant), serif;
   --font-sans: var(--font-inter), sans-serif;
 }
-
-# 3
+```
+#  3
+```javascript
 
 <h1 className="font-serif text-4xl italic text-[#c5a880]">Başlık Yazısı</h1>
 
 <p className="font-sans text-base text-gray-300">Açıklama metni...</p>
+```
