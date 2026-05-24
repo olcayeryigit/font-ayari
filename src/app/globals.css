@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@theme {
+  /* layout.js'ten gelen CSS değişkenini Tailwind font ailesine eşliyoruz */
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
